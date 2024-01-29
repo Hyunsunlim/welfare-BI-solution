@@ -36,7 +36,7 @@ function Header() {
               Data
             </Link>
           </li>
-          <li className="  text-white hover:text-red-400">
+          {/* <li className="  text-white hover:text-red-400">
             <Link
               href="/pages/database"
               className={`text-sm ${
@@ -46,7 +46,7 @@ function Header() {
             >
               Database
             </Link>
-          </li>
+          </li> */}
         </nav>
         <div>
           <button

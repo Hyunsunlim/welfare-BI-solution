@@ -165,8 +165,10 @@ function DatapageforUser({ userAnnualData }) {
                           {data.contractor}
                         </div>
                         <div className="flex-1 text-center">
-                          {data.closed.includes("N")
-                            ? "Reviewing"
+                          {data.closed.includes("R")
+                            ? "Rejected"
+                            : data.closed.includes("Y")
+                            ? "Approved"
                             : data.closed}
                         </div>
                         <div

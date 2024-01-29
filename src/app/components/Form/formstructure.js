@@ -8,6 +8,7 @@ import PersonalEventForm from "./FormSegment/FormforUser/personalEventForm";
 
 const UpdateFormData = {
   user_code: "",
+  unicode: "",
   type: "",
   closed: "N",
   month: "",
@@ -31,6 +32,7 @@ function Formstructure({ show, setShow, identity, update }) {
         ...prevForm,
         user_code: Usercode,
         type: update.type.trim(),
+        unicode: update.unicode.trim(),
       }));
     }
 
