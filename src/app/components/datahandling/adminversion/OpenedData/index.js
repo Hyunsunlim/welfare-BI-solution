@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-function Openeddata({ OpenedData }) {
+function Openeddata({ OpenedData, setApprovals, approvals }) {
   const columnNames = OpenedData.length > 0 ? Object.keys(OpenedData[0]) : [];
   const [monthH, setMonthH] = useState("");
-  const [approvals, setApprovals] = useState([]);
+
   const OpenedDataObject = OpenedData.length > 0 ? OpenedData : [];
 
-  const handleCheckboxChange = (rowIndex, value) => {
+  const handleCheckboxChange = (rowIndex, value, code) => {
     const newApprovals = [...approvals];
     const existingApprovalIndex = newApprovals.findIndex(
       (approval) => approval?.rowIndex === rowIndex
@@ -21,11 +21,11 @@ function Openeddata({ OpenedData }) {
         rowIndex,
         approval: value,
         month: monthH,
+        unicode: code.trim(),
       };
     }
     setApprovals(newApprovals);
   };
-  // console.log("업데이트", approvals, monthH);
 
   // console.log("OpenedDataObject", OpenedDataObject);
   return (
@@ -75,7 +75,9 @@ function Openeddata({ OpenedData }) {
                     type="checkbox"
                     className="accent-blue-500"
                     checked={approvals[rowIndex]?.approval === "Y"}
-                    onChange={() => handleCheckboxChange(rowIndex, "Y")}
+                    onChange={() =>
+                      handleCheckboxChange(rowIndex, "Y", row.Unicode)
+                    }
                   />
                   Y
                 </label>
@@ -84,7 +86,9 @@ function Openeddata({ OpenedData }) {
                     type="checkbox"
                     className="accent-pink-500"
                     checked={approvals[rowIndex]?.approval === "N"}
-                    onChange={() => handleCheckboxChange(rowIndex, "N")}
+                    onChange={() =>
+                      handleCheckboxChange(rowIndex, "N", row.Unicode)
+                    }
                   />
                   N
                 </label>

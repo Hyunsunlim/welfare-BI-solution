@@ -34,6 +34,7 @@ export default function LoginPage() {
       );
       console.log(data.user_Info);
       if (data.success) {
+        alert(data.message);
         router.push("/pages/data");
         localStorage.setItem("loginID", loginid);
         localStorage.setItem("username", data.user_Info.ADMIN_NAME);

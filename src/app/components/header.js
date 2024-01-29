@@ -51,7 +51,7 @@ function Header() {
         <div>
           <button
             onClick={Logout}
-            className="bg-white w-24 text-sm  p-1 rounded-md text-black  hover:bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400"
+            className="bg-white w-24 text-sm  p-1 rounded-md text-black  hover:bg-gradient-to-r from-blue-200 via-orange-200 to-orange-400"
           >
             LogOut
           </button>
