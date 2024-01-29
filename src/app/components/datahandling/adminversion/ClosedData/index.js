@@ -19,12 +19,14 @@ function Closeddata({ ClosedData }) {
               : item}
           </div>
         ))}
-        <div className="flex-1 flex items-center justify-center">Approval</div>
       </div>
       <div className="flex flex-1 relative flex-col overflow-y-auto pt-2">
         <div>
           {ClosedDataObject.map((row, rowIndex) => (
-            <div key={rowIndex} className="flex items-center justify-center">
+            <div
+              key={rowIndex}
+              className="flex items-center justify-center h-8"
+            >
               {row &&
                 Object.keys(row).map((columnkey, colIndex) => (
                   <div

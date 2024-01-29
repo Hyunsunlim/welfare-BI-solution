@@ -8,7 +8,6 @@ export async function PATCH(req) {
   try {
     const connection = await connectToDB();
     const UpdateFormData = await req.json();
-    console.log("백엔드업데이트", UpdateFormData);
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
     if (UpdateFormData.type.includes("H")) {

@@ -8,24 +8,29 @@ export async function POST(req) {
   try {
     const connection = await connectToDB();
     const UpdateFormData = await req.json();
+    const currentDate = new Date();
     await Promise.all(
       UpdateFormData.map(async (item) => {
         if (item.approval === "N") {
           await pool
             .request()
             .input("new_closed", sql.NVarChar, "R")
-            .input("current_unicode", sql.NVarChar, item.unicode).query(`
+            .input("current_unicode", sql.NVarChar, item.unicode)
+            .input("new_closeddate", sql.DateTime, currentDate).query(`
               UPDATE annualwelfare_POST_TEST
-              SET closed = @new_closed
+              SET closed = @new_closed,
+              closed_date = @new_closeddate
               WHERE unicode = @current_unicode
           `);
         } else if (item.approval === "Y") {
           await pool
             .request()
             .input("new_closed", sql.NVarChar, "Y")
-            .input("current_unicode", sql.NVarChar, item.unicode).query(`
+            .input("current_unicode", sql.NVarChar, item.unicode)
+            .input("new_closeddate", sql.DateTime, currentDate).query(`
               UPDATE annualwelfare_POST_TEST
-              SET closed = @new_closed
+              SET closed = @new_closed,
+              closed_date = @new_closeddate
               WHERE unicode = @current_unicode
           `);
         }

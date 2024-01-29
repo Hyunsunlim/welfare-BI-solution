@@ -126,7 +126,7 @@ export async function GET(req) {
       const AllOpenedApplication = openeddata.recordset;
 
       const Queryforcloseddata =
-        "Select a.unicode as Unicode, MIN(u.Name) AS User_name,count(a.user_code) AS Total_No,SUM(a.price) AS Total_Price,a.year AS Year,a.month AS Month, DATEDIFF(DAY, a.form_date, GETDATE()) AS Elapsed_days from annualwelfare_POST_TEST a JOIN user_Info u ON a.user_code = u.code where a.closed != 'N' AND a.del_flag = 0 group by a.unicode, a.month, a.year, a.form_date ORDER BY Elapsed_days ASC;";
+        "Select a.unicode as Unicode, MIN(u.Name) AS User_name,count(a.user_code) AS Total_No,SUM(a.price) AS Total_Price,a.year AS Year,a.month AS Month, DATEDIFF(DAY, a.form_date, a.closed_date) AS Elapsed_days from annualwelfare_POST_TEST a JOIN user_Info u ON a.user_code = u.code where a.closed != 'N' AND a.del_flag = 0 group by a.unicode, a.month, a.year, a.form_date, a.closed_date ORDER BY Elapsed_days ASC;";
       const closeddata = await pool.request().query(Queryforcloseddata);
       const AllClosedApplication = closeddata.recordset;
 

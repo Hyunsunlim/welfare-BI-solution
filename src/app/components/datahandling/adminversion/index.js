@@ -43,7 +43,7 @@ function DatapageforAdmin() {
 
   return (
     <div className="pt-4 flex flex-col w-full  gap-12 h-full  ">
-      <div className="w-full  bg-slate-900 shadow-lg bg-opacity-20 rounded-md h-full flex flex-col ">
+      <div className="w-full  bg-slate-900 shadow-lg bg-opacity-20 rounded-md h-1/2 flex flex-col ">
         <div className="h-12 flex items-center bg-slate-100 bg-opacity-20 shadow-lg rounded-t-md  justify-center font-bold">
           Opened Application
         </div>
@@ -63,7 +63,7 @@ function DatapageforAdmin() {
           </button>
         </div>
       </div>
-      <div className="w-full  bg-slate-900 shadow-lg bg-opacity-20 rounded-md  h-full flex flex-col  ">
+      <div className="w-full  bg-slate-900 shadow-lg bg-opacity-20 rounded-md  h-1/2 flex flex-col  ">
         <div className="h-12 items-center  justify-center bg-slate-100 bg-opacity-20 shadow-lg rounded-t-md flex flex-col font-bold">
           Closed Application
         </div>
