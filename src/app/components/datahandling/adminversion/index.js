@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Openeddata from "./OpenedData";
 import Closeddata from "./ClosedData";
-
+import { LuDot } from "react-icons/lu";
 function DatapageforAdmin() {
   const [openData, setOpenData] = useState([]);
   const [closedData, setClosedData] = useState([]);
@@ -40,13 +40,25 @@ function DatapageforAdmin() {
       window.alert(data.message);
     }
   }
-
+  console.log("Opened", openData);
+  const filteredData = openData.filter((item) => item.Elapsed_days >= 7);
   return (
     <div className="pt-4 flex flex-col w-full  gap-12 h-full  ">
       <div className="w-full  bg-slate-900 shadow-lg bg-opacity-20 rounded-md h-1/2 flex flex-col ">
-        <div className="h-12 flex items-center bg-slate-100 bg-opacity-20 shadow-lg rounded-t-md  justify-center font-bold">
+        <div className="h-12 relative flex items-center bg-slate-100 bg-opacity-20 shadow-lg rounded-t-md  justify-center font-bold">
           Opened Application
+          <div className="absolute right-0 h-full p-1 flex items-center text-sm">
+            <span className="pr-2 flex">
+              <LuDot className="text-blue-500" />
+              Total: {openData.length}
+            </span>
+            <span className="pr-2 flex">
+              <LuDot className="text-red-500" />
+              Over 7days: {filteredData.length}
+            </span>
+          </div>
         </div>
+
         <div className="overflow-y-auto flex-1">
           <Openeddata
             OpenedData={openData}

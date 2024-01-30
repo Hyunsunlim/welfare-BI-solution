@@ -37,11 +37,11 @@ function Totalfee() {
 
   return (
     <div className="shadow-lg w-full h-full rounded-md bg-white p-4 backdrop-opacity-10 hover:shadow-slate-400 transition duration-300 ease-in-out">
-      <div className="w-full rounded-md h-10  flex justify-center text-white items-center bg-slate-700 hover:-translate-y-1 duration-150">
-        <h1>補助費總價</h1>
+      <div className="w-full rounded-md h-1/3  flex justify-center text-white items-center bg-slate-700 hover:-translate-y-1 duration-150">
+        <h1>Total Expenditure</h1>
       </div>
-      <div className="w-full p-2 flex justify-center  items-center">
-        <h2 className="underline flex underline-offset-8 text-black  decoration-slate-700 text-sm">
+      <div className="w-full p-2 flex justify-center  items-center h-2/3 ">
+        <h2 className="underline flex underline-offset-8 text-black  decoration-slate-700 text-lg">
           {formatting_totalprice}
           <span className="flex sm:hidden xl:flex">NTD</span>
         </h2>
